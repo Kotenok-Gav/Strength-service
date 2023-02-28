@@ -13,4 +13,6 @@ urlpatterns = [
     path('rockets_bdf_all/<int:rocket_id>/', views.rocket, name='rocket'),
     #страница для добвления новой темы
     path('rocket_bdf_new/', views.rocket_bdf_new, name='rocket_bdf_new'),
+    #страница для редактирования данных
+    path('rocket_bdf_edit/<int:rocket_id>/', views.rocket_bdf_edit, name='rocket_bdf_edit'),
 ]

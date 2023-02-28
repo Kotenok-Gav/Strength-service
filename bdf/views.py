@@ -50,5 +50,20 @@ def rocket_bdf_new(request):
     return render(request, 'bdf/rocket_bdf_new.html', context)
 
 
-def rocket_bdf_edit
+def rocket_bdf_edit(request, rocket_id):
+    #редактируем существующий проект
+    bdf_edit = Rockets_bdf.objects.get(id=rocket_id)
 
+    if request.method != 'POST':
+        #Исходный запрос, форма заполняется данными текущей записи
+        form = Rockets_bdfForm(instance=bdf_edit)
+
+    else:
+        #Отправка данных POST
+        form = Rockets_bdfForm(instance=bdf_edit, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('bdf:rocket', rocket_id=rocket.id)
+
+    context = {'bdf_edit' : bdf_edit, 'form': form}
+    return render(request, 'bdf/rocket_bdf_edit', context)

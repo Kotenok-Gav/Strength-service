@@ -10,6 +10,10 @@
     {{ rocket.kolichestvo_amort  }}
     <br>
     {{ rocket.zhestkost_amort  }}
+
+    <p>
+    <a href="{% url 'bdf:rocket_bdf_edit' rocket.id %}">Изменить проект</a>
+    </p>
 </p>
 
 {% endblock content %}
