@@ -1,0 +1,19 @@
+{% extends "bdf/base.html" %}
+
+{% block content %}
+
+
+<p><a href="{% url 'bdf:rocket' rocket.id %}">{{ rocket }}</a> </p>
+
+<p>Edit entry:</p>
+
+<form action="{% url 'bdf:rocket_bdf_edit' rocket.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">Сохранить изменения</button>
+
+
+</form>
+
+{% endblock content %}
