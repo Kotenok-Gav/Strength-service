@@ -3,11 +3,11 @@
 {% block content %}
 
 
-<p><a href="{% url 'bdf:rocket' rocket.id %}">{{ rocket }}</a> </p>
+
 
 <p>Edit entry:</p>
 
-<form action="{% url 'bdf:rocket_bdf_edit' rocket.id %}" method="post">
+<form action="{% url 'bdf:rocket_bdf_edit' bdf_edit.id %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
 

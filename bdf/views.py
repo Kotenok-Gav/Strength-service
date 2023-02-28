@@ -63,7 +63,7 @@ def rocket_bdf_edit(request, rocket_id):
         form = Rockets_bdfForm(instance=bdf_edit, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('bdf:rocket', rocket_id=rocket.id)
+            return redirect('bdf:rocket', rocket_id=bdf_edit.id)
 
     context = {'bdf_edit' : bdf_edit, 'form': form}
-    return render(request, 'bdf/rocket_bdf_edit', context)
+    return render(request, 'bdf/rocket_bdf_edit.html', context)
