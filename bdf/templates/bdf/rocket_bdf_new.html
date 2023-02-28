@@ -1,0 +1,16 @@
+{% extends "bdf/base.html" %}
+
+{% block content %}
+
+<p>Создание нового проекта:</p>
+
+<form action="{% url 'bdf:rocket_bdf_new' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">Создать</button>
+
+
+</form>
+
+{% endblock content %}
