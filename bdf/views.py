@@ -50,9 +50,12 @@ def rocket_bdf_new(request):
     return render(request, 'bdf/rocket_bdf_new.html', context)
 
 
+@login_required()
 def rocket_bdf_edit(request, rocket_id):
     #редактируем существующий проект
     bdf_edit = Rockets_bdf.objects.get(id=rocket_id)
+    if bdf_edit.owner != request.user:
+        raise Http404
 
     if request.method != 'POST':
         #Исходный запрос, форма заполняется данными текущей записи

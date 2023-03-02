@@ -1,5 +1,12 @@
 {% extends "bdf/base.html" %}
 
+{% load bootstrap4 %}
+
+
+{% block page_header %}
+    <h4>Войдите в свой аккаунт.</h4>
+{% endblock page_header %}
+
 
 
 
@@ -9,11 +16,13 @@
     <p>Неверный логин и пароль, повторите попытку.</p>
     {% endif %}
  
-    <form method="post" action="{% url 'users:login' %}">
+    <form method="post" action="{% url 'users:login' %}" class="form">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% bootstrap_form form %}
 
-        <button name="submit">Вход</button>
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">Вход</button>
+        {% endbuttons %}
 
 
         <input type="hidden" name="next" value="{% url 'bdf:index' %}" />

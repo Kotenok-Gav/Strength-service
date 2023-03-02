@@ -31,14 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    #Мои приложения
+    'bdf',
+    'users',
+
+    #Сторонние приложения
+    'bootstrap4',
+    
+    #Остальные приложения
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bdf',
-    'users',
+
 ]
 
 MIDDLEWARE = [

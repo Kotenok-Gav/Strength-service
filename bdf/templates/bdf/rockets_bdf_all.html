@@ -1,24 +1,29 @@
 {% extends "bdf/base.html" %}
 
+{% block page_header %}
+    <h5>Мои проекты</h5>
+{% endblock page_header %}
+
 {% block content %}
-
-<p>
-    Ваши проекты
-</p>
-
 <ul>
-    {% for rocket in rockets_bdf_all %}
 
+    {% for rocket in rockets_bdf_all %}
     <li>
-        <a href="{% url 'bdf:rocket' rocket.id %}" >{{rocket}}</a>
+        <h6>
+            <a href="{% url 'bdf:rocket' rocket.id %}" >{{rocket}}</a>
+        </h6>
     </li>
 
     {% empty %}
-    <li>Проекты еще не созданы.</li>
+        <h6>
+            <li>Проекты еще не созданы.</li>
+        </h6>
     {% endfor %}
 
 </ul>
 
-    <a href="{% url 'bdf:rocket_bdf_new'  %}">Создать новый проект</a>
+    <h6>
+        <a href="{% url 'bdf:rocket_bdf_new'  %}">Создать новый проект</a>
+    </h6>
 
 {% endblock content %}

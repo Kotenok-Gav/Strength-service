@@ -1,7 +1,13 @@
 {% extends "bdf/base.html" %}
 
 {% block content %}
-<p>
-    Приветствуем вас на нашем сервисе!
-</p>
+    <div class='jumbotron'>
+        <h3 class="display-4">Приветствуем вас на нашем сервисе!</h3>
+        <p class="lead">
+            CAE-GROUP - доверенный поставщик инженерных решений в области моделирования газовой динамики,
+            теплообмена, прочности.
+        </p>
+        <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Регистрация</a>
+    </div>
+
 {% endblock content %}
