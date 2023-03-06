@@ -43,7 +43,22 @@ def rocket_bdf_new(request):
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
             new_topic.save()
-#            form.save()
+            file = open("1.txt", "w")
+            file.write("NASTRAN SYSTEM(151)=1\nNASTRAN BUFFSIZE=65537\n\nID START\nTIME	300\nSOL	129\nDIAG	8,50\nCEND\necho=both\n\n")
+            file.write("DISPLACEMENT(SORT1,REAL)	= all\nSPCFORCES(SORT1, REAL) = all\nFORCE(SORT1, REAL, BILIN) = all\n")
+            file.write("VELOCITY = all\nACCELERATION = all\nOLOAD(SORT1, REAL) = all\nLOADSET = 100\n\nSUBCASE 1\nSUBTITLE = STATIKA\n")
+            file.write("DISPLACEMENT = ALL\nLOAD = 222\nSPC = 10\nTSTEPNL = 1\nPARAM, TSTATIC, 1\n\n")
+            file.write("SUBCASE 2\nSUBTITLE =   DINAMIKA_1\nPARAM,TSTATIC,-1\nDLOAD=210\nDISPLACEMENT=ALL\n")
+            file.write("TSTEPNL=2\nNONLINEAR=1\nSPC=10\nSTATSUB  =   5\n\n")
+            file.write("OUTPUT(XYPLOT)\n   PLOTTER = NAST\n   CSCALE = 1.3\n   XAXIS = YES\n   YAXIS = YES\n")
+            file.write("   XTITLE = TIME IN SEC\n   YTITLE = DISPLACEMENT\nXYPLOT DISP RESP / 11(T2) / 11(T3) / 11(R1)\n")
+            file.write("BEGIN   BULK\nPARAM   G           0.1\nPARAM   W3          1.0\n\nPARAM   POST      0\n")
+            file.write("PARAM   PRTMAXIM  YES\n\n")
+            file.write(str(new_topic.start_rocket))
+            file.write(str(new_topic.kolichestvo_amort))
+            file.write(str(new_topic.zhestkost_amort))
+            file.write(str(new_topic.text))
+            file.close()
             return redirect('bdf:rockets_bdf_all')
 
     context = {'form': form}
