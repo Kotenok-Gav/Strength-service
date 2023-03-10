@@ -84,10 +84,11 @@ class Rockets_bdfForm(forms.ModelForm):
         self.fields['P12'].initial = "457830"
         self.fields['t_p13'].initial = "6.45"
         self.fields['P13'].initial = "457830"
+        self.fields['N'].initial = "67.4"
 
     class Meta:
         model = Rockets_bdf
-        fields = ['text', 'start_rocket', 'kolichestvo_amort', 'zhestkost_amort', 'X1', 'X2', 'V_sredy', 'd0', 'L', 'm', 'm_gch', 'X_gch', 'm_cy', 'X_cy', 'm_dy', 'X_dy', 'mo', 'Lo', 'Xo', 'mg', 'Lg', 'Xg', 'modul_unga1', 'koeff_puass1', 'modul_unga2', 'koeff_puass2', 'plotnost2', 't', 't_p1', 'P1', 't_p2', 'P2', 't_p3', 'P3', 't_p4', 'P4', 't_p5', 'P5', 't_p6', 'P6', 't_p7', 'P7', 't_p8', 'P8', 't_p9', 'P9', 't_p10', 'P10', 't_p11', 'P11', 't_p12', 'P12', 't_p13', 'P13']
+        fields = ['text', 'start_rocket', 'kolichestvo_amort', 'zhestkost_amort', 'X1', 'X2', 'V_sredy', 'd0', 'L', 'm', 'm_gch', 'X_gch', 'm_cy', 'X_cy', 'm_dy', 'X_dy', 'mo', 'Lo', 'Xo', 'mg', 'Lg', 'Xg', 'modul_unga1', 'koeff_puass1', 'modul_unga2', 'koeff_puass2', 'plotnost2', 't', 't_p1', 'P1', 't_p2', 'P2', 't_p3', 'P3', 't_p4', 'P4', 't_p5', 'P5', 't_p6', 'P6', 't_p7', 'P7', 't_p8', 'P8', 't_p9', 'P9', 't_p10', 'P10', 't_p11', 'P11', 't_p12', 'P12', 't_p13', 'P13', 'N']
 
     def clean_start_rocket(self):
         start_rocket = self.cleaned_data['start_rocket']
