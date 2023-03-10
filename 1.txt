@@ -49,4 +49,4 @@ PARAM   W3          1.0
 PARAM   POST      0
 PARAM   PRTMAXIM  YES
 
-016.56Синева
+016.56Ангара
