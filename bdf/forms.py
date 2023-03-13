@@ -13,7 +13,7 @@ class Rockets_bdfForm(forms.ModelForm):
         self.fields['start_rocket'].label="Определение старта ракеты"
         self.fields['start_rocket'].initial="0"
         self.fields['kolichestvo_amort'].label = "Количество поясов амортизации"
-        self.fields['kolichestvo_amort'].initial = "1"
+        self.fields['kolichestvo_amort'].initial = "2"
         self.fields['zhestkost_amort'].label = "Жесткость амортизатора"
         self.fields['zhestkost_amort'].initial = "6.56"
         self.fields['X1'].label = "Введите расстояние"
@@ -98,7 +98,7 @@ class Rockets_bdfForm(forms.ModelForm):
 
     def clean_kolichestvo_amort(self):
         kolichestvo_amort = self.cleaned_data['kolichestvo_amort']
-        if kolichestvo_amort > 5 or kolichestvo_amort < 1:
+        if kolichestvo_amort > 5 or kolichestvo_amort < 2:
             raise ValidationError('Указали неверное значение')
         return kolichestvo_amort
 
